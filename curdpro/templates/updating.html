@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    {% include 'cdnlines.html' %}
+  </head>
+  <style media="screen">
+    input[name]{ margin-top:-10px; }
+    input[name]:hover{ background-color: pink; box-radius:5px; }
+  </style>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="offset-md-3 col-md-6">
+          <h4 class="text-center text-primary mt-5">Fill employees data!!</h4>
+          <form method="POST" action="{% url 'updata_emp' i.id %}">
+            {% csrf_token %}
+            <label>first name:</label>
+            <input type="text" name="fname" class="form-control"  placeholder="fast_name" value="{{i.first_name}}">
+            <label>last name:</label>
+            <input type="text" name="lname" class="form-control" placeholder="last_name" value="{{i.last_name}}">
+            <label>mobile:</label>
+            <input type="number" name="mobile" class="form-control" placeholder="mobile" value="{{i.mobile}}">
+            <label>email:</label>
+            <input type="text" name="email" class="form-control" placeholder="email"  value="{{i.email}}">
+            <label>company:</label>
+            <input type="text" name="company" class="form-control" placeholder="company" value="{{i.company}}">
+            <label>salary:</label>
+            <input type="number" name="salary" class="form-control" placeholder="salary" value="{{i.salary}}">
+            <label>location</label>
+            <input type="text" name="location" class="form-control" pleaseholder="location" value="{{i.location}}">
+
+            <center>
+              <input type="submit" value="updata" class="btn btn-success mt-3">
+              <input type="reset" value="cancel" class="btn btn-danger mt-3">
+            </center>
+
+          </form>
+          <div class="text-center">
+          </div>
+          <a href="{% url 'home' %}" class="btn btn-primary">goto main page</a>
+      </div>
+    </div>
+  </body>
+</html>

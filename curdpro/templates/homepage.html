@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    {% include 'cdnlines.html' %}
+  </head>
+  <style media="screen">
+    input[name]{ margin-top:10px; }
+    input[name]:hover{ background-color: pink; box-radius:5px; }
+    td,th{ font-size: 10px; }
+    form{ box-shadow: 0px 0px 10px green; }
+  </style>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="offset-md-3 col-md-6">
+          <marquee><h1 class="text-center mt-5 bg-danger">Fill employees data!!</h1></marquee>
+
+          <form method="post">
+            {% csrf_token %}
+            <!-- <label>first name:</label> -->
+            <input type="text" name="fname" class="form-control"  placeholder="fname">
+            <!-- <label>last name:</label> -->
+            <input type="text" name="lname" class="form-control" placeholder="lname">
+            <!-- <label>mobile:</label> -->
+            <input type="number" name="mobile" class="form-control" placeholder="mobile">
+            <!-- <label>email:</label> -->
+            <input type="text" name="email" class="form-control" placeholder="email">
+            <!-- <label>company:</label> -->
+            <input type="text" name="company" class="form-control" placeholder="company">
+            <!-- <label>salary:</label> -->
+            <input type="number" name="salary" class="form-control" placeholder="salary">
+            <!-- <label>location</label> -->
+            <input type="text" name="location" class="form-control" placeholder="location">
+
+            <center>
+              <input type="submit" name="add" class="btn btn-success mt-3">
+              <input type="reset" name="cancel" class="btn btn-danger mt-3">
+              </center>
+          </form>
+          <a href="{% url 'home' %}" class="btn btn-danger">See Data</a>
+      </div>
+
+    </div>
+
+  </body>
+</html>
